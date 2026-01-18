@@ -27,12 +27,12 @@ This classifier is specifically designed to identify and filter the following ty
 
 | Noise Type | Characteristics | Frequency Range | Typical Sources |
 | :--- | :--- | :--- | :--- |
-| **Electrical Hum** | Persistent tonal interference | 50 Hz fundamental + harmonics (100 Hz, 150 Hz) | Power lines, electrical equipment, mains interference |
+| **Electrical Hum** | Persistent tonal interference | 50 Hz fundamental + harmonics (100 Hz, 150 Hz) | Power lines, electrical equipment, mains interference (50 Hz regions) |
 | **Wind Noise** | Non-stationary buffeting/rumble | < 200 Hz (low-frequency energy) | Microphone wind turbulence, outdoor recording |
 | **Traffic/Engine Noise** | Continuous low-frequency drone | < 400 Hz | Vehicle engines, road traffic, machinery |
 | **Fan Noise** | Broadband "white noise" hiss | Distributed across spectrum | Cooling fans, air conditioning, HVAC systems |
 | **Human Chatter** | Speech and vocal sounds | 300-3400 Hz (voice band) | Conversations, background speech |
-| **Silence** | Minimal acoustic energy | Below noise floor (< 0.001 power) | Quiet environments, no active sound source |
+| **Silence** | Minimal acoustic energy | Below noise floor (normalized power < 0.001) | Quiet environments, no active sound source |
 
 ---
 
@@ -41,9 +41,9 @@ This classifier is specifically designed to identify and filter the following ty
 The system is designed for the following use cases:
 
 ### Primary Application: Speech Enhancement
-* **Real-time audio cleaning:** Improves speech intelligibility in noisy environments by removing background interference while preserving voice frequencies (300-3400 Hz).
+* **Real-time audio cleaning:** Improves speech intelligibility in noisy environments by removing background interference while preserving voice frequencies (300-3400 Hz telephone bandwidth).
 * **Recording quality improvement:** Enhances audio recordings captured in suboptimal acoustic environments (e.g., outdoor interviews, home recordings, conference calls).
-* **Use Cases:** Podcast production, video conferencing, voice recording, field journalism.
+* **Use Cases:** Podcast production, video conferencing, voice recording, field journalism, telephony applications.
 
 ### Secondary Applications:
 * **Environmental Acoustic Monitoring:** Classifies and characterizes ambient noise profiles for acoustic analysis.
