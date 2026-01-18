@@ -21,7 +21,44 @@
 
 ---
 
-## 2. Executive Summary
+## 2. Target Noise Types
+
+This classifier is specifically designed to identify and filter the following types of environmental noise:
+
+| Noise Type | Characteristics | Frequency Range | Typical Sources |
+| :--- | :--- | :--- | :--- |
+| **Electrical Hum** | Persistent tonal interference | 50 Hz fundamental + harmonics (100 Hz, 150 Hz) | Power lines, electrical equipment, mains interference (50 Hz regions) |
+| **Wind Noise** | Non-stationary buffeting/rumble | < 200 Hz (low-frequency energy) | Microphone wind turbulence, outdoor recording |
+| **Traffic/Engine Noise** | Continuous low-frequency drone | < 400 Hz | Vehicle engines, road traffic, machinery |
+| **Fan Noise** | Broadband "white noise" hiss | Distributed across spectrum | Cooling fans, air conditioning, HVAC systems |
+| **Human Chatter** | Speech and vocal sounds | 300-3400 Hz (voice band) | Conversations, background speech |
+| **Silence** | Minimal acoustic energy | Below noise floor (normalized power < 0.001) | Quiet environments, no active sound source |
+
+---
+
+## 3. Intended Applications
+
+The system is designed for the following use cases:
+
+### Primary Application: Speech Enhancement
+* **Real-time audio cleaning:** Improves speech intelligibility in noisy environments by removing background interference while preserving voice frequencies (300-3400 Hz telephone bandwidth).
+* **Recording quality improvement:** Enhances audio recordings captured in suboptimal acoustic environments (e.g., outdoor interviews, home recordings, conference calls).
+* **Use Cases:** Podcast production, video conferencing, voice recording, field journalism, telephony applications.
+
+### Secondary Applications:
+* **Environmental Acoustic Monitoring:** Classifies and characterizes ambient noise profiles for acoustic analysis.
+* **Audio Forensics:** Identifies and removes specific interference types from audio evidence.
+* **Hearing Aid Technology:** Adaptive noise reduction based on environment classification.
+* **Smart Audio Devices:** Context-aware audio processing for headphones, smart speakers, and recording equipment.
+
+### System Characteristics:
+* **Near Real-Time Processing:** 3-5 second audio segments for minimal latency.
+* **Adaptive Filtering:** Applies mathematically optimal filters based on detected noise type.
+* **Signal Preservation:** Maintains audio fidelity by targeting specific interference rather than applying blanket noise reduction.
+
+---
+
+## 4. Executive Summary
 
 This project presents a sophisticated audio processing pipeline designed to mitigate environmental noise pollution in real-time recordings. Unlike traditional systems that utilize static filtering techniques—which often degrade audio fidelity by applying a blanket frequency cut—this system functions as an intelligent agent.
 
@@ -31,7 +68,7 @@ The system autonomously analyzes the acoustic environment to classify the specif
 
 ---
 
-## 3. Detailed System Architecture
+## 5. Detailed System Architecture
 
 The system architecture is bifurcated into two distinct, serial processing modules: the **Classification Module** (Signal Analysis) and the **Filtering Module** (Signal Restoration).
 
@@ -131,7 +168,7 @@ Post-filtering, the signal amplitude often decreases due to the removal of noise
 
 ---
 
-## 4. Visualizations & Output
+## 6. Visualizations & Output
 
 The system generates immediate visual feedback to validate performance:
 
@@ -141,7 +178,7 @@ The system generates immediate visual feedback to validate performance:
 
 ---
 
-## 5. User Manual: Execution Guide
+## 7. User Manual: Execution Guide
 
 ### Requirements
 * **Hardware:** PC with an external or internal microphone.
@@ -156,7 +193,7 @@ The system generates immediate visual feedback to validate performance:
 
 ---
 
-## 6. Mathematical Foundations
+## 8. Mathematical Foundations
 
 The system relies on the following mathematical principles for analysis and adaptive learning:
 
@@ -177,6 +214,6 @@ $$w[n+1] = w[n] + \mu\frac{e[n]x[n]}{||x[n]||^{2}+\epsilon}$$
 
 ---
 
-## 7. Conclusion
+## 9. Conclusion
 
 This project demonstrates a fully functional **"Smart Audio System."** By synthesizing spectral feature extraction with a deterministic decision tree, the system automates the complex task of audio cleaning. Results indicate that identifying the *type* of noise is a prerequisite for effective restoration, allowing for a targeted filtering approach that preserves audio quality significantly better than static, general-purpose filters.
